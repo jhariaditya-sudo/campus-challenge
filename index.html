@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Build Your First AI Project in 60 Minutes | Free workshop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f9fc;--grid:#dce6f5;--card:#fff;--ink:#16224d;--muted:#55627f;--blue:#2447d6;--onblue:#fff;--pen:#d6283e;--hl:#ffe45c;--onhl:#16224d;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1424;--grid:#1c2744;--card:#161d33;--ink:#e8edff;--muted:#a3afd0;--blue:#7f9bff;--onblue:#0f1424;--pen:#ff6b7f}}
+:root[data-theme="dark"]{--bg:#0f1424;--grid:#1c2744;--card:#161d33;--ink:#e8edff;--muted:#a3afd0;--blue:#7f9bff;--onblue:#0f1424;--pen:#ff6b7f}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background-color:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px}
+main{max-width:680px;margin:0 auto;padding:30px 18px 64px}
+h1,h2,h3{font-family:Archivo,system-ui,sans-serif;margin:0;line-height:1.08}
+h1{font-size:clamp(2.1rem,7vw,3.2rem);font-weight:800;letter-spacing:-.02em}
+h2{font-size:1.5rem;font-weight:800}
+.note{font-family:Caveat,cursive;font-size:1.7rem;color:var(--pen);margin:0 0 4px;transform:rotate(-2deg);display:inline-block}
+.lead{max-width:56ch;color:var(--muted);font-size:1.06rem;margin:14px 0 6px}
+.inv{font-family:Caveat,cursive;font-size:1.5rem;color:var(--blue);min-height:1.5em;margin:0}
+.tk{background:var(--card);border:2px solid var(--ink);border-radius:4px 16px 4px 16px;margin-top:18px;box-shadow:6px 6px 0 var(--ink)}
+.tkhead{display:flex;justify-content:space-between;gap:10px;padding:12px 20px;border-bottom:2px dashed var(--ink);font-family:Archivo,sans-serif;font-weight:800}
+.tkhead span:last-child{font-weight:500;color:var(--muted)}
+.tkbody{padding:6px 20px 22px}
+label{display:block;font-weight:600;font-size:.93rem;margin:14px 0 4px}
+input,textarea{width:100%;padding:11px 12px;border:0;border-bottom:2px solid var(--ink);border-radius:0;background:transparent;color:var(--ink);font:inherit}
+input::placeholder{color:var(--muted);opacity:.7}
+input:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:520px){.row{grid-template-columns:1fr}}
+button,.btn{display:inline-block;background:var(--blue);color:var(--onblue);border:2px solid var(--blue);border-radius:3px;padding:12px 20px;font:inherit;font-weight:700;cursor:pointer;text-decoration:none;margin:18px 8px 0 0}
+button.alt,.btn.alt{background:transparent;color:var(--ink);border-color:var(--ink)}
+.err{color:var(--pen);font-weight:600;min-height:1.5em;margin-top:8px}
+.who{font-size:1.9rem;font-weight:800;margin-top:14px}
+.sub{color:var(--muted);margin:2px 0 14px}
+.nums{display:flex;gap:26px;flex-wrap:wrap;margin:6px 0 14px}
+.nums b{font-family:Archivo,sans-serif;font-size:2.6rem;line-height:1;display:block}
+.nums span{color:var(--muted);font-size:.9rem}
+.stamps{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+.stamp{flex:1 1 150px;border:2px dashed var(--muted);color:var(--muted);padding:10px;text-align:center;font-weight:700;border-radius:4px;font-size:.92rem}
+.stamp small{display:block;font-weight:500}
+.stamp.on{border:3px solid var(--pen);color:var(--pen);transform:rotate(-4deg);background:transparent}
+.stamp.on:nth-child(2){transform:rotate(3deg)}
+.next{display:inline;background:linear-gradient(transparent 55%,var(--hl) 55%);color:inherit;font-weight:600;padding:0 2px}
+@media(prefers-color-scheme:dark){.next{color:var(--ink)}}
+textarea{border:2px solid var(--ink);resize:vertical;min-height:100px;border-radius:3px;margin-top:2px}
+.say{color:var(--muted);min-height:1.5em;margin-top:8px}
+section{margin-top:44px}
+.tabs{display:flex;gap:18px;flex-wrap:wrap;margin:12px 0 8px}
+.tabs button{background:none;border:0;border-bottom:3px solid transparent;border-radius:0;color:var(--muted);padding:6px 0;margin:0;font-weight:700}
+.tabs button.on{color:var(--ink);border-bottom-color:var(--blue)}
+.r{display:grid;grid-template-columns:1.8rem 1fr auto;gap:2px 8px;align-items:end;padding:9px 0}
+.r .n{color:var(--muted)}
+.r .v{font-family:Archivo,sans-serif;font-weight:800}
+.r .b{grid-column:2/4;height:10px;background:var(--grid);border:1px solid var(--muted)}
+.r .b i{display:block;height:100%;background:var(--blue)}
+.r.me .b i{background:var(--hl);outline:1px solid var(--ink)}
+.r.me .l{font-weight:800}
+.muted{color:var(--muted)}
+details{border-top:2px solid var(--ink);padding:12px 0}
+details:last-of-type{border-bottom:2px solid var(--ink)}
+summary{font-weight:700;cursor:pointer}
+details p{margin:8px 0 0;color:var(--muted)}
+.demo{margin-top:44px;border:2px dashed var(--muted);padding:6px 16px 16px;color:var(--muted);font-size:.93rem}
+.demo button{margin-top:10px;padding:8px 12px;font-size:.88rem}
+.foot{margin-top:30px;color:var(--muted);font-size:.9rem}
+[hidden]{display:none!important}
+.hero{background-color:#16224d;color:#fff;padding:calc(36px + env(safe-area-inset-top,0px)) 18px 100px;background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:24px 24px}
+.hero .in{max-width:644px;margin:0 auto;position:relative}
+.hero h1{font-size:clamp(2.2rem,8vw,3.7rem);margin-top:12px}
+.hero .note{color:#ffe45c;margin:0}
+.hero .lead{color:#c9d3f5;font-size:1.1rem;margin:16px 0 0}
+.hero .inv{color:#ffe45c}
+.gets{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:6px;font-weight:600}
+.gets li:before{content:"\2713";display:inline-block;width:1.6rem;color:#ffe45c;font-weight:800}
+.sticker{position:absolute;right:0;bottom:0;width:96px;height:96px;border-radius:50%;background:#ffe45c;color:#16224d;display:grid;place-content:center;text-align:center;font-weight:800;font-size:.82rem;line-height:1.1;transform:rotate(10deg);box-shadow:3px 3px 0 #000}
+.sticker b{font-family:Archivo,sans-serif;font-size:2.4rem;line-height:.9}
+@media(max-width:560px){.sticker{display:none}}
+main{padding-top:0}
+.tk{margin-top:-64px;position:relative}
+button[type=submit]{background:#ffe45c;color:#16224d;border-color:#16224d;box-shadow:3px 3px 0 #16224d;font-size:1.05rem}
+</style>
+</head>
+<body>
+<header class="hero"><div class="in">
+<p class="note">free. really.</p>
+<h1>Everyone's resume says AI. Yours will have a project.</h1>
+<p class="lead">Build your first AI project in 60 minutes. A free online workshop for final-year engineering students. No AI background needed.</p>
+<ul class="gets"><li>A working AI project</li><li>A live link for your resume</li><li>Something real to say in interviews</li></ul>
+<p class="inv" id="inv"></p>
+<div class="sticker"><b>60</b>minutes<br>free</div>
+</div></header>
+<main>
+
+<article class="tk">
+<div class="tkhead"><span>Workshop pass</span><span id="tno">not yet issued</span></div>
+<div class="tkbody">
+<form id="f" novalidate>
+<label for="name">Your name</label><input id="name" autocomplete="name">
+<label for="college">Your college</label><input id="college" placeholder="Full name of your college">
+<div class="row">
+<div><label for="branch">Branch</label><input id="branch" placeholder="CSE, ECE, IT">
+</div>
+<div><label for="phone">WhatsApp number</label><input id="phone" inputmode="numeric" maxlength="10" placeholder="10 digits"></div>
+</div>
+<div class="err" id="err" role="alert"></div>
+<button type="submit">Get my pass</button>
+</form>
+<div id="pass" hidden>
+<div class="who" id="who"></div>
+<div class="sub" id="sub"></div>
+<div class="nums">
+<div><b id="cnt">0</b><span>friends you brought in</span></div>
+<div><b id="rank">1</b><span id="rankl">your college's rank</span></div>
+</div>
+<div class="stamps" id="stamps"></div>
+<p><span class="next" id="next"></span></p>
+<label for="msg">Send this to your college group</label>
+<textarea id="msg" readonly></textarea>
+<button id="copy" type="button">Copy message</button><a class="btn alt" id="wa" target="_blank" rel="noopener">Send on WhatsApp</a>
+<div class="say" id="say" role="status"></div>
+</div>
+</div>
+</article>
+
+<section>
+<h2>Which college is winning</h2>
+<div id="prog" class="muted"></div>
+<div class="tabs">
+<button data-t="colleges" type="button">Top colleges</button>
+<button data-t="growing" type="button">Fastest today</button>
+<button data-t="students" type="button">Top students</button>
+</div>
+<div id="tbl"></div>
+</section>
+
+<section>
+<h2>Quick answers</h2>
+<details><summary>Do I need to know AI or coding already?</summary><p>No. It's a first project. If you can follow along, you can build it.</p></details>
+<details><summary>What does it cost?</summary><p>Nothing. Registering and attending are free.</p></details>
+<details><summary>Why is there a scoreboard?</summary><p>The workshop is better with your friends in it. When someone registers through your link, it counts for you and for your college.</p></details>
+</section>
+
+<div class="demo">
+<h3>Prototype controls</h3>
+<p>Data stays in this browser. The live version writes to a Google Sheet so every student sees the same board.</p>
+<button type="button" id="dsim" class="alt">Add a friend through my link</button>
+<button type="button" id="dseed" class="alt">Load sample data</button>
+<button type="button" id="dreset" class="alt">Reset</button>
+</div>
+<p class="foot">Built by a final-year student for the NxtWave Growth Challenge.</p>
+</main>
+<script>
+var MILES=[[3,"Campus Connector"],[10,"Workshop Champion"],[25,"Campus Ambassador"]];
+var S={users:[]},me=null,tab="colleges";
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function each(q,f){Array.prototype.forEach.call(document.querySelectorAll(q),f)}
+function load(){try{var s=localStorage.getItem("cc2");if(s)S=JSON.parse(s);me=localStorage.getItem("cc2me")}catch(e){}}
+function save(){try{localStorage.setItem("cc2",JSON.stringify(S));if(me)localStorage.setItem("cc2me",me);else localStorage.removeItem("cc2me")}catch(e){}}
+function key(c){return c.trim().toLowerCase().replace(/\s+/g," ")}
+function refs(c){return S.users.filter(function(u){return u.refBy===c}).length}
+function colleges(){var m={},cut=Date.now()-864e5;S.users.forEach(function(u){var k=key(u.college);m[k]=m[k]||{k:k,name:u.college,n:0,r:0};m[k].n++;if(u.ts>cut)m[k].r++});return Object.keys(m).map(function(k){return m[k]})}
+function mk(n){return (n.split(" ")[0].toLowerCase().replace(/[^a-z]/g,"")||"stu")+Math.random().toString(36).slice(2,5)}
+function link(c){return location.href.split("?")[0].split("#")[0]+"?ref="+c}
+function add(n,c,b,p,r){var u={name:n,college:c,branch:b,phone:p,code:mk(n),refBy:r||null,ts:Date.now()};S.users.push(u);return u}
+function inviter(){var r=new URLSearchParams(location.search).get("ref");return S.users.filter(function(x){return x.code===r})[0]||null}
+
+$("f").addEventListener("submit",function(e){
+e.preventDefault();
+var n=$("name").value.trim(),c=$("college").value.trim(),b=$("branch").value.trim(),p=$("phone").value.trim();
+if(!n||!c||!b){$("err").textContent="Add your name, college and branch to get your pass.";return}
+if(!/^[6-9]\d{9}$/.test(p)){$("err").textContent="That number doesn't look right. Enter your 10-digit mobile number.";return}
+if(S.users.some(function(u){return u.phone===p})){$("err").textContent="This number already has a pass. Use your own number.";return}
+var i=inviter();me=add(n,c,b,p,i?i.code:null).code;$("err").textContent="";save();render()});
+
+function render(){
+var u=S.users.filter(function(x){return x.code===me})[0],i=inviter();
+$("inv").textContent=(!u&&i)?i.name.split(" ")[0]+" sent you this. Grab your pass.":"";
+$("f").hidden=!!u;$("pass").hidden=!u;
+$("tno").textContent=u?"No. "+("000"+(S.users.indexOf(u)+1)).slice(-4):"not yet issued";
+if(u){
+var n=refs(u.code),cs=colleges().sort(function(a,b){return b.n-a.n}),x=cs.map(function(c){return c.k}).indexOf(key(u.college));
+$("who").textContent=u.name;$("sub").textContent=u.college+", "+u.branch;
+$("cnt").textContent=n;$("rank").textContent="#"+(x+1);$("rankl").textContent="rank of your college";
+$("stamps").innerHTML=MILES.map(function(m){return'<div class="stamp'+(n>=m[0]?" on":"")+'">'+esc(m[1])+"<small>"+(n>=m[0]?"stamped":"at "+m[0]+" friends")+"</small></div>"}).join("");
+var nx=MILES.filter(function(m){return n<m[0]})[0];
+$("next").textContent=nx?(nx[0]-n)+(nx[0]-n===1?" more friend":" more friends")+" and you earn the "+nx[1]+" stamp.":"All stamps collected. Now push your college up the board.";
+var msg="Free workshop: build a working AI project in 60 minutes and get a link you can put on your resume. No AI background needed. Register here: "+link(u.code);
+$("msg").value=msg;$("wa").href="https://wa.me/?text="+encodeURIComponent(msg)}
+board()}
+
+function board(){
+var t=S.users.length,cs=colleges(),rows=[],mine=null,u=S.users.filter(function(x){return x.code===me})[0];
+$("prog").innerHTML=t>=50?'<div class="r" style="padding:0"><span></span><span></span><span class="v">'+t+" / 500</span><div class='b'><i style='width:"+Math.min(100,t/5)+"%'></i></div></div>":(t?t+" students from "+cs.length+(cs.length===1?" college have":" colleges have")+" registered so far.":"");
+each(".tabs button",function(b){b.className=b.dataset.t===tab?"on":""});
+if(u)mine=key(u.college);
+if(tab==="colleges")rows=cs.sort(function(a,b){return b.n-a.n}).map(function(c){return{k:c.k,l:c.name,v:c.n,t:c.n}});
+if(tab==="growing")rows=cs.filter(function(c){return c.r>0}).sort(function(a,b){return b.r-a.r}).map(function(c){return{k:c.k,l:c.name,v:"+"+c.r,t:c.r}});
+if(tab==="students"){mine=me;rows=S.users.map(function(c){return{k:c.code,l:c.name+", "+c.college,v:refs(c.code),t:refs(c.code)}}).filter(function(c){return c.t>0}).sort(function(a,b){return b.t-a.t})}
+if(!rows.length){$("tbl").innerHTML='<p class="muted">'+(tab==="students"?"Nobody has brought in a friend yet. Share your link and take the first spot.":"No one has registered yet. Be the first from your college.")+"</p>";return}
+var max=rows[0].t;
+$("tbl").innerHTML=rows.slice(0,8).map(function(r,i){return'<div class="r'+(r.k===mine?" me":"")+'"><span class="n">'+(i+1)+'</span><span class="l">'+esc(r.l)+'</span><span class="v">'+esc(r.v)+'</span><div class="b"><i style="width:'+Math.max(4,r.t/max*100)+'%"></i></div></div>'}).join("")}
+
+each(".tabs button",function(b){b.addEventListener("click",function(){tab=b.dataset.t;board()})});
+$("copy").addEventListener("click",function(){
+var m=$("msg");function ok(){$("say").textContent="Copied. Paste it in your college group."}
+function fb(){m.removeAttribute("readonly");m.select();try{document.execCommand("copy");ok()}catch(e){$("say").textContent="Select the message and copy it."}m.setAttribute("readonly","")}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(m.value).then(ok,fb)}else fb()});
+
+var CO=["Sample College A","Sample College B","Sample College C","Sample College D","Sample College E","Sample College F"];
+$("dsim").addEventListener("click",function(){
+if(!me){alert("Get your pass first, then add a friend through your link.");return}
+var i=S.users.length;add("Sample friend "+i,CO[i%CO.length],"CSE","9"+String(100000000+i*7919).slice(0,9),me);save();render()});
+$("dseed").addEventListener("click",function(){
+var b=S.users.length;
+for(var i=0;i<40;i++){var r=i>3&&Math.random()<.5?S.users[b+Math.floor(Math.random()*i)].code:null;add("Sample student "+(b+i),CO[Math.floor(Math.random()*Math.random()*CO.length)],"CSE","8"+String(100000000+(b+i)*104729).slice(0,9),r)}
+save();render()});
+$("dreset").addEventListener("click",function(){S={users:[]};me=null;save();render()});
+load();render();
+</script>
+</body>
+</html>
